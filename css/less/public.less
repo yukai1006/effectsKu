@@ -1,0 +1,67 @@
+// main: ../style.less
+
+.close{
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	background: #008AD4;
+	font-family: Arial;
+	cursor: pointer;
+	.border-radius(15px,15px,15px,15px);
+}
+
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+	-moz-border-radius-topright: @topright;
+	-moz-border-radius-bottomright: @bottomright;
+	-moz-border-radius-bottomleft: @bottomleft;
+	-moz-border-radius-topleft: @topleft;
+	-webkit-border-top-right-radius: @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius: @bottomleft;
+	-webkit-border-top-left-radius: @topleft;
+	border-top-right-radius: @topright;
+	border-bottom-right-radius: @bottomright;
+	border-bottom-left-radius: @bottomleft;
+	border-top-left-radius: @topleft;
+	.background-clip(padding-box);
+}
+.box-shadow(@arguments) {
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.transition(@duration) {
+	-moz-transition:  @duration;
+	-webkit-transition:  @duration;
+	transition:  @duration;
+}
+.transition(@duration) when (@duration = 0) {
+	-moz-transition: none;
+	-webkit-transition: none;
+	transition: none;
+}
+.background-clip(@argument: padding-box) {
+	-moz-background-clip: @argument;
+	-webkit-background-clip: @argument;
+	background-clip: @argument;
+}
+.opacity(@value) {
+	filter:~"alpha(opacity = @{value})";
+	opacity: @value / 100;
+}
+.transform(@arguments) {
+	-moz-transform: @arguments;
+	-ms-transform: @arguments;
+	-webkit-transform: @arguments;
+	transform: @arguments;
+}
+.animation(@animation-name,@animation-duration,@animation-timing-function,@animation-delay,@animation-iteration-count,@animation-direction) {
+	-moz-animation: @arguments;
+  -o-animation: @arguments;
+	-webkit-animation: @arguments;
+	animation: @arguments;
+}

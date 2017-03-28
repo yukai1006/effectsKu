@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title></title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/remRatio.js"></script>
+</head>
+<body>
+<div class="dialog-box">
+	<a href="javascript:;" id="showToast" class="button button-primary">点击弹出</a>
+	<a href="javascript:;" id="showLoading" class="button button-primary">点击弹出加载</a>
+	<a href="javascript:;" id="showDialog" class="button button-primary">弹出对话选择</a>
+</div>
+
+<!--提示-->
+<div id="toast" style="display: none;">
+	<div class="mask-transparent"></div>
+	<div class="toast">
+		过2秒隐藏
+	</div>
+</div>
+<!--正在加载-->
+<div id="loading" style="display: none;">
+	<div class="mask-transparent"></div>
+	<div class="toast">
+	    <div class="loading">
+	        <div class="loading-leaf loading-leaf-0"></div>
+	        <div class="loading-leaf loading-leaf-1"></div>
+	        <div class="loading-leaf loading-leaf-2"></div>
+	        <div class="loading-leaf loading-leaf-3"></div>
+	        <div class="loading-leaf loading-leaf-4"></div>
+	        <div class="loading-leaf loading-leaf-5"></div>
+	        <div class="loading-leaf loading-leaf-6"></div>
+	        <div class="loading-leaf loading-leaf-7"></div>
+	        <div class="loading-leaf loading-leaf-8"></div>
+	        <div class="loading-leaf loading-leaf-9"></div>
+	        <div class="loading-leaf loading-leaf-10"></div>
+	        <div class="loading-leaf loading-leaf-11"></div>
+	    </div>
+	</div>
+</div>
+<!--弹窗对话选择-->
+<div id="dialog" style="display: none;">
+	<div class="mask-dialog"></div>
+	<div class="dialog">
+		<div class="close">X</div>
+	  <div class="dialog-hd"><strong class="dialog-title">弹窗标题</strong></div>
+	  <div class="dialog-bd">自定义弹窗内容，居左对齐显示，告知需要确认的信息等</div>
+	  <div class="dialog-ft">
+	      <a href="javascript:;" class="dialog-btn default">取消</a>
+	      <a href="javascript:;" class="dialog-btn primary">确定</a>
+	  </div>
+	</div>
+</div>
+
+<script src="../js/vendor/jquery-1.10.1.min.js"></script>
+<script src="../js/ui.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#showDialog").click(function () {
+        $('#dialog').show();
+        $(".dialog-btn").click(function () {
+          $('#dialog').hide();
+      });
+    });
+	})
+</script>
+</body>
+</html>

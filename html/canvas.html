@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>画布图片合成</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/vendor/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+
+<img id="pic01" src="../images/3.jpg" width="100%" style="display:none;">
+<div class="clickCanvas">点击我</div>
+<!-- <canvas id="canvas" width="300" height="300"></canvas> -->
+<div id="imgBox" style="width: 68%; margin: 0 auto; padding-top: .6rem;"></div>
+
+<script type="text/javascript">
+$(function(){
+	$(".clickCanvas").click(function(){
+		draw()
+	})
+})
+function draw(){
+	var c=document.createElement('canvas');
+	var ctx=c.getContext('2d');
+	c.width=640;
+	c.height=1136;
+	ctx.fillStyle = "#fff";
+	ctx.fillRect(0,0,640,1136);
+
+	var img=document.getElementById("pic01");
+	ctx.drawImage(img,0,0,640,1136);
+	var imagec=new Image();
+	imagec.src='../images/tx.jpg';
+	imagec.onload=function(){
+		ctx.beginPath();
+		//画裁剪区域，此处以圆为例
+		ctx.arc(319,968,50,0,2*Math.PI);
+		ctx.clip();//次方法下面的部分为待剪切区域，上面的部分为剪切区域
+		ctx.drawImage(imagec,269,918,100,100);
+		var src = c.toDataURL("image/jpeg",.9);
+		document.getElementById('imgBox').innerHTML='<img src="'+src+'" width="100%" style="display:block"> ';
+	}
+}
+
+/**
+ * 图片加载器
+ * @param options
+ */
+// function hkImgLoader(options) {
+//     //默认参数设置
+//     var opts = {
+//         timeout: 5000,//超时时间
+//         imgSrcs: [],//图片地址
+//         callback: function (imgs) {
+//         }//回调方法
+//     }
+//     this.timeout = options.timeout || opts.timeout;
+//     this.imgSrcs = options.imgSrcs || opts.imgSrcs;
+//     this.callback = options.callback || opts.callback;
+//
+//     var n = 0, time = 0, imgs = [], len = imgSrcs.length;
+//     for (var i in imgSrcs) {
+//         var img = new Image();
+//         img.onload = function () {
+//             n++;
+//         };
+//         img.src = imgSrcs[i];
+//         imgs.push(img);
+//     }
+//     var timer = setInterval(function () {
+//         time += 200;
+//         if (n == len || time >= timeout) {
+//             window.clearInterval(timer);
+//             callback(imgs);
+//         }
+//     }, 200);
+// }
+// hkImgLoader({
+// 	imgSrcs:['../../images/1.jpg','../../images/tx.jpg'],
+// 	callback: function (imgs) {
+// 		// d(imgs[0],imgs[1])
+//
+// 		var c=document.createElement('canvas');
+// 		var ctx=c.getContext('2d');
+// 		c.width=640;
+// 		c.height=1136;
+// 		ctx.fillStyle = "#fff";
+// 		ctx.fillRect(0,0,640,1136);
+//
+// 		ctx.drawImage(imgs[0],0,0,640,1136);
+// 		ctx.beginPath();
+// 		//画裁剪区域，此处以圆为例
+// 		ctx.arc(319,968,50,0,2*Math.PI);
+// 		ctx.clip();//次方法下面的部分为待剪切区域，上面的部分为剪切区域
+// 		ctx.drawImage(imgs[1],269,918,100,100);
+// 		var src = c.toDataURL("image/jpeg",.9);
+// 		document.getElementById('imgBox').innerHTML='<img src="'+src+'" width="100%" style="display:block"> ';
+//
+//
+// 	}
+// });
+
+
+
+</script>
+
+</body>
+</html>

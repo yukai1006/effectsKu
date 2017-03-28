@@ -1,0 +1,121 @@
+// main: ../style.less
+/*
+[Contents]
+
+	0- Global
+	1- Links
+	2- Content(For tinymce)
+	3- Form
+*/
+/* =0 Global
+---------------------------------------------------------------------------------------------------------------------*/
+
+.hide {
+	display: none;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+/* Clearfix
+------------------------------------------------------*/
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+/* for IE6 */
+*html .clearfix {
+	zoom: 1;
+}
+/* for IE7 */
+* + html .clearfix {
+	zoom: 1;
+}
+
+/* Clearfix for LESS
+------------------------------------------------------*/
+.clearfix() {
+	*zoom: 1;
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/* =1 Links
+---------------------------------------------------------------------------------------------------------------------*/
+a {
+	text-decoration: none;
+	cursor: pointer !important;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+/* =2 Content(For Tinymce)
+---------------------------------------------------------------------------------------------------------------------*/
+/* margin/padding useing px2rem  for LESS
+------------------------------------------------------*/
+
+.margin(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+	.publicrem(margin-left,@left);
+	.publicrem(margin-right,@right);
+	.publicrem(margin-top,@top);
+	.publicrem(margin-bottom,@bottom);
+}
+.padding(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+	.publicrem(padding-left,@left);
+	.publicrem(padding-right,@right);
+	.publicrem(padding-top,@top);
+	.publicrem(padding-bottom,@bottom);
+}
+.padding(@sizing) {
+	.publicrem(padding,@sizing);
+}
+.margin(@sizing) {
+	.publicrem(margin,@sizing);
+}
+.margin-top(@sizing) {
+	.publicrem(margin-top,@sizing);
+}
+.margin-bottom(@sizing) {
+	.publicrem(margin-bottom,@sizing);
+}
+.margin-left(@sizing) {
+	.publicrem(margin-left,@sizing);
+}
+.margin-right(@sizing) {
+	.publicrem(margin-right,@sizing);
+}
+.padding-top(@sizing) {
+	.publicrem(padding-top,@sizing);
+}
+.padding-bottom(@sizing) {
+	.publicrem(padding-bottom,@sizing);
+}
+.padding-left(@sizing) {
+	.publicrem(padding-left,@sizing);
+}
+.padding-right(@sizing) {
+	.publicrem(padding-right,@sizing);
+}
+.box-size(){
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-webkit-box-sizing:
+	border-box;
+	box-sizing:border-box;
+}

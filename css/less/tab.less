@@ -1,0 +1,32 @@
+// main: ../style.less
+.tabBox{
+  margin: 0 auto;
+  .margin-top(20);
+  .clearfix();
+  width: 90%;
+  color: #fff;
+  display: flex;
+  li{
+    .margin-right(10);
+    .publicrem(height,60);
+    .publicrem(line-height,60);
+    .padding(0,20,0,20);
+    .box-size();
+    float: left;
+    background: #333;
+    text-align: center;
+    flex: 1;
+    overflow: hidden;
+    &.active{
+      background: #333 !important;
+    }
+  }
+  li:last-child{
+    margin-right: 0;
+  }
+}
+.tabCon{
+  display: none;
+  width: 100%;
+  min-height: 500px;
+}

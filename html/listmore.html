@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>向下滑动加载更多内容</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/remRatio.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+  <ul class="ul01">
+    <li>第1个</li>
+    <li>第2个</li>
+    <li>第3个</li>
+    <li>第4个</li>
+    <li>第5个</li>
+    <li>第6个</li>
+    <li>第7个</li>
+    <li>第8个</li>
+    <li>第9个</li>
+    <li>第10个</li>
+    <li>第11个</li>
+    <li>第12个</li>
+    <li>第13个</li>
+    <li>第14个</li>
+    <li>第15个</li>
+  </ul>
+</div>
+
+<script src="../js/vendor/jquery-1.10.1.min.js"></script>
+<script src="../js/vendor/iscroll.js"></script>
+<script src="../js/vendor/pullToRefresh.js"></script>
+<script type="text/javascript">
+
+refresher.init({
+	id: "wrapper",
+	//pullDownAction: Refresh,
+	pullUpAction: Load
+});
+var k = 0;
+
+function Load() {
+	setTimeout(function () {
+		var el, li, i;
+		el = document.querySelector("#wrapper ul");
+		for (i = 0; i < 3; i++) {
+			li = document.createElement('li');
+			li.appendChild(document.createTextNode('第' + (++k)));
+			el.appendChild(li, el.childNodes[0]);
+		}
+		wrapper.refresh();
+
+	}, 1000);
+}
+
+</script>
+</body>
+</html>

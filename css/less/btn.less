@@ -1,0 +1,57 @@
+// main: ../style.less
+/*--- 按钮 start ---*/
+.btn-box{
+	.margin(20,0,0,20);
+}
+.button{
+	.border-radius(5px,5px,5px,5px);
+	.transition(500ms);
+	.padding(10,20,10,20);
+	.box-size();
+	border: solid 1px @color-ddd;
+	position: relative;
+	top: 0;
+	bottom:0;
+	overflow: hidden;
+	text-align: center;
+	display: inline-block;
+	i{
+		margin-right: 5px;
+		color: #333;
+	}
+	&-primary{
+		color: @color-black;
+		background:@color-white;
+		//box-shadow: 1px 1px 1px #ccc; /*X,Y,Z   外阴影*/
+		/* box-shadow:5px 5px 5px #999 inset; 内阴影*/
+	}
+	&-disabled{
+		color:rgba(255,255,255,0.6);
+	}
+}
+
+//选中状态
+// .button:hover{
+// 	top: -2px;
+// 	background:@color-orange;
+// 	color: @color-white;
+// 	i{
+// 		color: #333 !important;
+// 	}
+// }
+// .background-white:hover{
+// 	background:#666 !important;
+// }
+
+//点击状态
+.button-primary:not(.button-disabled):active{
+	color:rgba(255,255,255,0.4);
+	background: #ddd;
+}
+
+//不可点击状态
+.gray{
+	background: #CCCCCC;
+	pointer-events: none;
+}
+/*--- 按钮 end ---*/

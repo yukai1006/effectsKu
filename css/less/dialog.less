@@ -1,0 +1,95 @@
+// main: ../style.less
+/*--- 弹出层和遮罩层 end ---*/
+
+.mask-transparent{
+	position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.mask-dialog{
+	position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/*提示*/
+.toast{
+	.border-radius(5px,5px,5px,5px);
+	position: fixed;
+  z-index: 3;
+	width: 30%;
+	height: 100px;
+	line-height: 100px;
+  left: 50%;
+  margin-left: -15%;
+  background: rgba(40, 40, 40, 0.75);
+  text-align: center;
+  color: #FFFFFF;
+}
+/*弹窗对话选择*/
+.dialog-box{
+	margin: 20px 0 0 20px;
+}
+.dialog{
+	position: fixed;
+  z-index: 13;
+  width: 70%;
+  top:50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #FAFAFC;
+  text-align: center;
+  border-radius: 10px;
+  // overflow: hidden;
+}
+.dialog-hd{
+	.padding(20,0,0,0);
+	.box-size();
+	.publicrempx(font-size,32);
+}
+.dialog-bd{
+	.padding(30,40,30,40);
+}
+.dialog-ft{
+	.margin-top(20);
+	.border-radius(0,10px,10px,0);
+	.publicrem(height,60);
+	.publicrem(line-height,60);
+	border-top: 1px solid #d5d5d6;
+	position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+	overflow: hidden;
+
+}
+.dialog-ft a{
+	border-left: 1px solid #d5d5d6;
+
+}
+.dialog-ft a:first-child{
+	border-left: 1px solid #d5d5d6;
+
+}
+.dialog-ft a:active{
+	background: #eee;
+}
+.dialog-btn{
+	flex: 1;
+	color: red;
+}
+.dialog-btn.default{
+	color: #333;
+}
+.dialog-btn.primary{
+	color: #0994DA;
+}
